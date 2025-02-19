@@ -14,40 +14,50 @@ export default function ArticleSelector() {
     // stato della lista articoli
     const [articles, setArticle] = useState(initialArticles);
 
-    // stato dell'input di inserimento nuovi titoli
-    // const [newArticle, setNewArticle] = useState('');
-
     const [newTitle, setNewTitle] = useState('');
+
+
+    // stato dell'input di inserimento nuovi titoli
+    const [newArticle, setNewArticle] = useState('');
+
+
+
 
 
 
 
     //  aggiunta nuovo titolo alla lista
 
-    const addTitle = e => {
+    const addArticle = e => {
         e.preventDefault();
 
-        const newTitleInfo = { id: articles[articles.length - 1].id + 1, title: newTitle };
+        const newArticleInfo = { id: articles[articles.length - 1].id + 1, title: newTitle };
         // creazione nuovo array
-        const updatedTitle = [...articles, newTitleInfo];
+        const updatedArticle = [...articles, newArticleInfo];
 
-        setArticle(updatedTitle);
+        setArticle(updatedArticle);
         // azzeriamo il valore di newTitle
+        setNewArticle('');
+        // azzeriamo input titolo
         setNewTitle('');
     }
+
 
     return (
         <>
 
-            <form onSubmit={addTitle}>
+            <form onSubmit={addArticle}>
 
-                {/* input nuovo titolo */}
+                {/* input nuovo articolo */}
                 <input
                     type="text"
                     value={newTitle}
                     onChange={e => setNewTitle(e.target.value)}
-                    placeholder="Inserisci titolo"
+                    placeholder="Inserisci articolo"
                 />
+
+                {/* input nuovo autore */}
+
 
                 <button > Invia!</button>
             </form >
