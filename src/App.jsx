@@ -8,7 +8,7 @@ function App() {
   return (
     <>
 
-      <h1>Squadre Spareggi Champions League</h1>
+      <h1>Citazioni illustri</h1>
 
       <ArticlesList />
 
