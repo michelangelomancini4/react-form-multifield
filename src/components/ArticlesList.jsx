@@ -12,34 +12,36 @@ const initialArticles = [
 export default function ArticleSelector() {
 
     // stato della lista articoli
-    const [articles, setArticles] = useState(initialArticles);
+    const [articles, setArticle] = useState(initialArticles);
 
-    // stato dell'input di inserimento nuova articoli
-    const [newArticle, setNewArticle] = useState('');
+    // stato dell'input di inserimento nuovi titoli
+    // const [newArticle, setNewArticle] = useState('');
+
     const [newTitle, setNewTitle] = useState('');
 
 
 
-    //  aggiunta nuovo articolo alla lista
 
-    const addArticle = e => {
+    //  aggiunta nuovo titolo alla lista
+
+    const addTitle = e => {
         e.preventDefault();
 
-        const newArticleInfo = { id: articles[articles.length - 1].id + 1, title: newArticle.title, categoria: newArticle.categoria, autore: newArticle.autore, contenuto: newArticle.contenuto };
+        const newTitleInfo = { id: articles[articles.length - 1].id + 1, title: newTitle };
         // creazione nuovo array
-        const updatedArticles = [...articles, newArticleInfo];
+        const updatedTitle = [...articles, newTitleInfo];
 
-        setArticles(updatedArticles);
-        // azzeriamo il valore di newarticle
-        setNewArticle('');
+        setArticle(updatedTitle);
+        // azzeriamo il valore di newTitle
+        setNewTitle('');
     }
 
     return (
         <>
 
-            <form onSubmit={addArticle}>
+            <form onSubmit={addTitle}>
 
-                {/* input nuovo articolo */}
+                {/* input nuovo titolo */}
                 <input
                     type="text"
                     value={newTitle}
@@ -55,7 +57,7 @@ export default function ArticleSelector() {
             <div>
                 {articles.map((article) => (
                     <div key={article.id}>
-                        <h2>{article.title}</h2>
+                        <h2>Titolo : {article.title}</h2>
                         <h4>{article.autore}</h4>
                         <label htmlFor="#">{article.categoria}</label>
                         <p>{article.contenuto}</p>
